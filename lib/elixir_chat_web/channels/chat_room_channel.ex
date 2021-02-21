@@ -1,3 +1,5 @@
+alias ElixirChat.Chats
+
 defmodule ElixirChatWeb.ChatRoomChannel do
   use ElixirChatWeb, :channel
 
@@ -10,6 +12,7 @@ defmodule ElixirChatWeb.ChatRoomChannel do
   # broadcast to everyone in the current topic (chat_room:lobby).
   @impl true
   def handle_in("shout", payload, socket) do
+    Chats.create_message(payload)
     broadcast socket, "shout", payload
     {:noreply, socket}
   end
