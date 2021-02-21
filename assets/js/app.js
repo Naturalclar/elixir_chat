@@ -11,5 +11,9 @@ import "../css/app.scss";
 //
 //     import {Socket} from "phoenix"
 import socket from "./socket";
+
+import ChatRoom from "./chat_room";
+
+ChatRoom.init(socket);
 //
 import "phoenix_html";
